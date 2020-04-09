@@ -114,13 +114,14 @@ export const AddressTransactions = ({
     <>
       <AddressTransactionsPanel>
         {transactions.map((transaction: State.Transaction, index: number) => {
+          const { blockNumber, transactionHash } = transaction
           return (
             transaction && (
               <TransactionItem
                 address={addressHash}
                 transaction={transaction}
-                confirmation={tipBlockNumber - transaction.blockNumber}
-                key={transaction.transactionHash}
+                confirmation={tipBlockNumber - blockNumber > 0 ? tipBlockNumber - blockNumber : 0}
+                key={transactionHash}
                 titleCard={index === 0 ? <AddressTransactionsTitle count={transactionsCount} /> : null}
                 isLastItem={index === transactions.length - 1}
               />
