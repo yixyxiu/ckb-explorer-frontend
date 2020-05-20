@@ -33,20 +33,20 @@ export const PaginationPanel = styled.div`
 
 export const PaginationLeftItem = styled.div`
   display: flex;
-  flex: 1;
-  font-size: 16px;
+  align-items: center;
+  flex: 3;
+  font-size: 14px;
   text-align: center;
   color: #000000;
-  line-height: 40px;
+  padding-left: 20px;
 
   @media (min-width: 750px) {
-    align-items: center;
     justify-content: center;
   }
 
   > button {
-    font-size: 16px;
     height: 40px;
+    padding: 0 16px;
     border-radius: 6px;
     border: none;
     outline: none;
@@ -62,14 +62,12 @@ export const PaginationLeftItem = styled.div`
     }
   }
 
-  .first {
-    width: 90px;
+  .pagination__first {
     color: ${(props: { isFirstPage: boolean; isLastPage: boolean }) => (props.isFirstPage ? '#888888' : '#000000')};
     pointer-events: ${(props: { isFirstPage: boolean; isLastPage: boolean }) => (props.isFirstPage ? 'none' : 'auto')};
   }
 
-  .left__button {
-    width: 30px;
+  .pagination__left__button {
     margin-left: 20px;
     background-image: url(${LeftBlack});
     background-position: center;
@@ -85,16 +83,16 @@ export const PaginationLeftItem = styled.div`
     }
   }
 
-  .middle__label {
+  .pagination__middle__label {
     height: 40px;
     background: #f5f5f5;
     border-radius: 6px;
     margin-left: 20px;
-    padding: 0 6px;
+    padding: 0 12px;
+    line-height: 40px;
   }
 
-  .right__button {
-    width: 30px;
+  .pagination__right__button {
     margin-left: 20px;
     background-image: url(${RightBlack});
     background-position: center;
@@ -110,8 +108,7 @@ export const PaginationLeftItem = styled.div`
     }
   }
 
-  .last {
-    width: 90px;
+  .pagination__last {
     margin-left: 20px;
     color: ${(props: { isFirstPage: boolean; isLastPage: boolean }) => (props.isLastPage ? '#888888' : '#000000')};
     pointer-events: ${(props: { isFirstPage: boolean; isLastPage: boolean }) => (props.isLastPage ? 'none' : 'auto')};
@@ -120,17 +117,16 @@ export const PaginationLeftItem = styled.div`
   @media (max-width: 750px) {
     width: 60%;
     height: 50px;
+    padding-left: 20px;
 
     > button {
       font-size: 8px;
+      padding: 0 5px;
       height: 20px;
       border-radius: 3px;
     }
 
-    .left__button {
-      width: 16px;
-      margin-top: 15px;
-      margin-left: 20px;
+    .pagination__left__button {
       background-image: url(${isMainnet() ? LeftGreen : LeftBlue});
       background-position: center;
       background-size: 6px 10px;
@@ -138,28 +134,25 @@ export const PaginationLeftItem = styled.div`
       order: 0;
     }
 
-    .first {
+    .pagination__first {
       display: none;
     }
 
-    .last {
+    .pagination__last {
       display: none;
     }
 
-    .middle__label {
+    .pagination__middle__label {
       line-height: 16px;
       font-size: 12px;
       background: #ffffff;
       width: auto;
       height: 16px;
-      margin-top: 17px;
       margin-left: 10px;
       order: 1;
     }
 
-    .right__button {
-      width: 16px;
-      margin-top: 15px;
+    .pagination__right__button {
       margin-left: 10px;
       background-image: url(${isMainnet() ? RightGreen : RightBlue});
       background-position: center;
@@ -173,21 +166,22 @@ export const PaginationLeftItem = styled.div`
 export const PaginationRightItem = styled.div`
   flex-direction: row;
   display: flex;
-  font-size: 16px;
+  font-size: 14px;
   color: #000000;
+  padding-right: 20px;
 
   @media (min-width: 750px) {
-    width: 452px;
+    flex: 2;
     align-items: center;
-    justify-content: center;
-    padding: 10px 0px 10px 80px;
+    justify-content: flex-start;
+    padding: 10px 0px 10px 30px;
   }
 
   @media (max-width: 750px) {
     height: 50px;
   }
 
-  .input__page {
+  .pagination__input__page {
     width: 120px;
     height: 40px;
     border: none;
@@ -195,10 +189,9 @@ export const PaginationRightItem = styled.div`
     background-color: #f5f5f5;
     color: grey;
     outline: none;
-    font-size: 16px;
     margin-right: 20px;
     padding-left: 10px;
-    &:focus + .goto__page {
+    &:focus + .pagination__goto__page {
       font-weight: 600;
     }
 
@@ -213,8 +206,8 @@ export const PaginationRightItem = styled.div`
   }
 
   > button {
-    font-size: 16px;
     height: 40px;
+    padding: 0 12px;
     border-radius: 6px;
     border: none;
     outline: none;
@@ -227,13 +220,12 @@ export const PaginationRightItem = styled.div`
     }
     @media (max-width: 750px) {
       height: 20px;
+      padding: 0 5px;
       border-radius: 3px;
     }
   }
 
-  .goto__page {
-    width: 90px;
-    margin-right: 80px;
+  .pagination__goto__page {
     @media (max-width: 750px) {
       width: 40px;
       margin-top: 15px;
@@ -242,9 +234,7 @@ export const PaginationRightItem = styled.div`
     }
   }
 
-  .page {
-    width: 42px;
-    font-size: 16px;
+  .pagination__page {
     margin-right: 20px;
     @media (max-width: 750px) {
       display: none;

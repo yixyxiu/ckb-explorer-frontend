@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Component shallow renders 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.c1 {
+  margin: 0 auto;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: white;
+  border: 0px solid white;
+  border-radius: 4px;
+  padding-right: 5px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 8px;
+  z-index: 2;
+}
+
+.c2 img {
+  width: 16px;
+  height: 16px;
+  margin: 0 auto;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 20px;
+  margin-left: -8px background:white;
+  color: #333333;
+  border: 0px solid white;
+  border-radius: 4px;
+}
+
+.c3:focus {
+  color: #333333;
+  outline: none;
+}
+
+.c3::-webkit-input-placeholder {
+  color: #888888;
+}
+
+.c3::-moz-placeholder {
+  color: #888888;
+}
+
+.c3:-ms-input-placeholder {
+  color: #888888;
+}
+
+.c3::placeholder {
+  color: #888888;
+}
+
+@media (max-width:750px) {
+  .c2 {
+    margin-left: 8px;
+  }
+}
+
+@media (max-width:750px) {
+  .c3 {
+    font-size: 12px;
+    width: 100%;
+    padding-right: 16px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="button"
+      tabIndex={-1}
+    >
+      <img
+        alt="search logo"
+        src="search_black.png"
+      />
+    </div>
+    <input
+      className="c3"
+      defaultValue=""
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyUp={[Function]}
+      placeholder="Block/Transaction/Address/Lock Hash"
+    />
+  </div>
+</div>
+`;

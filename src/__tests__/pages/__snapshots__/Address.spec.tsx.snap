@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Active Page shallow renders 1`] = `
+<_default>
+  <styled.div
+    className="container"
+  >
+    <_default
+      specialAddress=""
+      title="Address"
+    >
+      <AddressTitleOverview />
+    </_default>
+    <AddressAssetCompState />
+    <AddressStateTransactions
+      currentPage={1}
+      pageSize={10}
+    />
+  </styled.div>
+</_default>
+`;
+
+exports[`Active Page shallow renders with empty data 1`] = `
+<div
+  className="sc-fznxsB cFeRni"
+>
+  <div
+    className="sc-fznWqX bNxGGa container"
+  >
+    <div
+      className="sc-AxiKw dNuYhX"
+    >
+      <div
+        className="hash__card__content__panel"
+        id="hash_content"
+      >
+        <div
+          className="hash__title"
+        >
+          Address
+        </div>
+        <div
+          className="hash__card__hash__content"
+        >
+          <div
+            id="hash__text"
+          >
+            <span
+              className="monospace"
+            >
+              
+            </span>
+          </div>
+          <div
+            className="sc-AxhUy ifPyXr hash__copy_icon"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onMouseOver={[Function]}
+            role="button"
+            tabIndex={-1}
+          >
+            <img
+              alt="copy"
+              src="copy.png"
+            />
+          </div>
+        </div>
+        
+        <div
+          className="monospace"
+          id="hash__value"
+        />
+      </div>
+      <div
+        className="sc-fznJRM czNnvG"
+      >
+        <div
+          className="address__title__separate"
+        />
+        <div
+          className="sc-fzqBkg iaqSkl"
+          id=""
+        >
+          <div
+            className="sc-fzqPZZ dYiIAp"
+          >
+            <div
+              className="overview_content__left_items"
+            >
+              <div
+                className="sc-fzoxKX beGHQs"
+              >
+                <div
+                  className="overview_item__title__panel"
+                >
+                  <div
+                    className="overview_item__title"
+                  >
+                    Live Cells
+                  </div>
+                </div>
+                <div
+                  className="overview_item__value"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              className="overview_content__right_items"
+            >
+              <div
+                className="sc-fzoxKX beGHQs"
+              >
+                <div
+                  className="overview_item__title__panel"
+                >
+                  <div
+                    className="overview_item__title"
+                  >
+                    Block Mined
+                  </div>
+                </div>
+                <div
+                  className="overview_item__value"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="sc-fzqARJ dXYecO"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <div>
+              Lock Script
+            </div>
+            <img
+              alt="lock script"
+              src="arrow_down.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

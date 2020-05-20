@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react'
 import { AxiosError } from 'axios'
 import { useTranslation } from 'react-i18next'
-import { SearchImage, SearchInputPanel, SearchPanel } from './styled'
+import { SearchImage, SearchInputPanel, SearchPanel, SearchButton, SearchContainer } from './styled'
 import { fetchSearchResult } from '../../service/http/fetcher'
 import browserHistory from '../../routes/history'
 import SearchLogo from '../../assets/search_black.png'
@@ -11,7 +11,8 @@ import ClearLogo from '../../assets/clear.png'
 import { addPrefixForHash } from '../../utils/string'
 import i18n from '../../utils/i18n'
 import { HttpErrorCode, SearchFailType } from '../../utils/const'
-import { AppDispatch, AppActions, ComponentActions } from '../../contexts/providers/reducer'
+import { AppDispatch } from '../../contexts/reducer'
+import { AppActions, ComponentActions } from '../../contexts/actions'
 import { isMobile } from '../../utils/screen'
 import { useAppState, useDispatch } from '../../contexts/providers'
 import { isMainnet } from '../../utils/chain'
@@ -152,8 +153,9 @@ const SearchIconButton = ({
   highlightIcon?: boolean
 }) => {
   const dispatch = useDispatch()
-  const { components } = useAppState()
-  const { searchBarEditable } = components
+  const {
+    components: { searchBarEditable },
+  } = useAppState()
   const getSearchIcon = () => {
     if (highlightIcon) {
       return isMainnet() ? GreenSearchLogo : BlueSearchLogo
@@ -177,11 +179,12 @@ const SearchIconButton = ({
   )
 }
 
-const Search = ({ hasBorder, content }: { hasBorder?: boolean; content?: string }) => {
+const Search = ({ hasBorder, content, hasButton }: { hasBorder?: boolean; content?: string; hasButton?: boolean }) => {
   const dispatch = useDispatch()
   const [t] = useTranslation()
   const SearchPlaceholder = useMemo(() => {
-    return t('navbar.search_placeholder')
+    const placeholder = t('navbar.search_placeholder')
+    return isMainnet() ? placeholder.substring(0, placeholder.lastIndexOf('/')) : placeholder
   }, [t])
   const [searchValue, setSearchValue] = useState(content || '')
   const [placeholder, setPlaceholder] = useState(SearchPlaceholder)
@@ -203,57 +206,64 @@ const Search = ({ hasBorder, content }: { hasBorder?: boolean; content?: string 
   }, [searchBarEditable])
 
   return (
-    <SearchPanel hasBorder={!!hasBorder}>
-      {!hasBorder && !searchBarEditable && <SearchIconButton searchValue={searchValue} inputElement={inputElement} />}
-      {isMobile() && <div className="search__icon__separate" />}
-      <SearchInputPanel
-        searchBarEditable={searchBarEditable}
-        ref={inputElement}
-        placeholder={placeholder}
-        defaultValue={searchValue || ''}
-        hasBorder={!!hasBorder}
-        onFocus={() => {
-          if (!hasBorder) {
-            dispatch({
-              type: ComponentActions.UpdateHeaderSearchEditable,
-              payload: {
-                searchBarEditable: true,
-              },
-            })
-          }
-        }}
-        onBlur={() => {
-          if (isMobile()) {
+    <SearchContainer>
+      <SearchPanel moreHeight={hasBorder || hasButton} hasButton={hasButton}>
+        {!hasBorder && !searchBarEditable && <SearchIconButton searchValue={searchValue} inputElement={inputElement} />}
+        {isMobile() && <div className="search__icon__separate" />}
+        <SearchInputPanel
+          searchBarEditable={searchBarEditable}
+          ref={inputElement}
+          placeholder={placeholder}
+          defaultValue={searchValue || ''}
+          hasBorder={hasBorder}
+          onFocus={() => {
             if (!hasBorder) {
-              handleSearchResult(searchValue, inputElement, searchBarEditable, dispatch)
-            }
-          } else {
-            if (!hasBorder) {
-              clearSearchInput(inputElement)
-            }
-            setPlaceholder(SearchPlaceholder)
-            if (searchBarEditable) {
               dispatch({
                 type: ComponentActions.UpdateHeaderSearchEditable,
                 payload: {
-                  searchBarEditable: false,
+                  searchBarEditable: true,
                 },
               })
             }
-          }
-        }}
-        onChange={(event: any) => {
-          setSearchValue(event.target.value)
-        }}
-        onKeyUp={(event: any) => {
-          if (event.keyCode === 13) {
-            handleSearchResult(searchValue, inputElement, searchBarEditable, dispatch)
-          }
-        }}
-      />
-      {!hasBorder && searchBarEditable && <ClearIconButton />}
-      {hasBorder && <SearchIconButton highlightIcon searchValue={searchValue} inputElement={inputElement} />}
-    </SearchPanel>
+          }}
+          onBlur={() => {
+            if (isMobile()) {
+              if (!hasBorder) {
+                handleSearchResult(searchValue, inputElement, searchBarEditable, dispatch)
+              }
+            } else {
+              if (!hasBorder) {
+                clearSearchInput(inputElement)
+              }
+              setPlaceholder(SearchPlaceholder)
+              if (searchBarEditable) {
+                dispatch({
+                  type: ComponentActions.UpdateHeaderSearchEditable,
+                  payload: {
+                    searchBarEditable: false,
+                  },
+                })
+              }
+            }
+          }}
+          onChange={(event: any) => {
+            setSearchValue(event.target.value)
+          }}
+          onKeyUp={(event: any) => {
+            if (event.keyCode === 13) {
+              handleSearchResult(searchValue, inputElement, searchBarEditable, dispatch)
+            }
+          }}
+        />
+        {!hasBorder && searchBarEditable && <ClearIconButton />}
+        {hasBorder && <SearchIconButton highlightIcon searchValue={searchValue} inputElement={inputElement} />}
+      </SearchPanel>
+      {hasButton && (
+        <SearchButton onClick={() => handleSearchResult(searchValue, inputElement, searchBarEditable, dispatch)}>
+          {i18n.t('search.search')}
+        </SearchButton>
+      )}
+    </SearchContainer>
   )
 }
 

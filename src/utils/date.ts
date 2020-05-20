@@ -11,8 +11,8 @@ export const parseSimpleDate = (timestamp: number | string) => {
   )}:${formatData(date.getSeconds())}`
 }
 
-export const parseSimpleDateNoSecond = (timestamp: number | string, connector = '-') => {
-  const date = new Date(Number(timestamp))
+export const parseSimpleDateNoSecond = (timestamp: number | string, connector = '-', isMillisecond = true) => {
+  const date = new Date(Number(timestamp) * (isMillisecond ? 1 : 1000))
   return `${date.getFullYear()}${connector}${date.getMonth() + 1}${connector}${date.getDate()} ${formatData(
     date.getHours(),
   )}:${formatData(date.getMinutes())}`
@@ -35,9 +35,10 @@ export const parseTimeNoSecond = (millisecond: number | string) => {
   return `${hour} h ${minute} m`
 }
 
-export const parseDateNoTime = (timestamp: number | string) => {
+export const parseDateNoTime = (timestamp: number | string, noYear = false) => {
   const date = new Date(Number(timestamp) * 1000)
-  return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
+  const year = noYear ? '' : `${date.getFullYear()}/`
+  return `${year}${date.getMonth() + 1}/${date.getDate()}`
 }
 
 export const parseDate = (timestamp: number | string) => {
@@ -72,4 +73,9 @@ export const parseTime = (millisecond: number) => {
     return `${Math.floor(minute)} m ${second.toFixed(0)} s`
   }
   return `${second.toFixed(2)} s`
+}
+
+export const parseHour = (minutes: number | string) => {
+  const num = typeof minutes === 'string' ? Number(minutes) : minutes
+  return parseFloat((num / 60).toFixed(2))
 }
