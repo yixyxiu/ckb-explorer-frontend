@@ -353,6 +353,58 @@ declare namespace State {
     }[]
   }
 
+  export interface StatisticTotalSupply {
+    createdAtUnixtimestamp: string
+    circulatingSupply: string
+    burnt: string
+    lockedCapacity: string
+  }
+
+  export interface StatisticAnnualPercentageCompensation {
+    year: number
+    apc: string
+  }
+
+  export interface StatisticAnnualPercentageCompensations {
+    nominalApc: string[]
+  }
+
+  export interface StatisticSecondaryIssuance {
+    createdAtUnixtimestamp: string
+    treasuryAmount: string
+    miningReward: string
+    depositCompensation: string
+  }
+
+  export interface StatisticInflationRates {
+    nominalApc: string[]
+    nominalInflationRate: string[]
+    realInflationRate: string[]
+  }
+
+  export interface StatisticInflationRate {
+    year: number
+    nominalApc: string
+    nominalInflationRate: string
+    realInflationRate: string
+  }
+
+  export interface StatisticLiquidity {
+    createdAtUnixtimestamp: string
+    circulatingSupply: string
+    liquidity: string
+    daoDeposit: string
+  }
+
+  export interface StatisticMinerAddressDistribution {
+    minerAddressDistribution: object
+  }
+
+  export interface StatisticMinerAddress {
+    address: string
+    radio: string
+  }
+
   interface FetchStatusValue {
     OK: string
     Error: string
@@ -409,6 +461,25 @@ declare namespace State {
     total: number
   }
 
+  export interface TokenInfo {
+    symbol: string
+    fullName: string
+    iconFile: string
+    published: boolean
+    description: string
+    totalAmount: string
+    addressesCount: string
+    decimal: string
+    h24CkbTransactionsCount: string
+    createdAt: string
+    typeHash: string
+  }
+
+  export interface TokensState {
+    tokens: TokenInfo[]
+    status: FetchStatus
+  }
+
   export interface StatisticChartsState {
     statisticDifficultyHashRates: StatisticDifficultyHashRate[]
     statisticDifficultyUncleRates: StatisticDifficultyUncleRate[]
@@ -431,6 +502,12 @@ declare namespace State {
     statisticCirculationRatios: StatisticCirculationRatio[]
     statisticNewNodeCounts: StatisticNewNodeCount[]
     statisticNodeDistributions: StatisticNodeDistribution[]
+    statisticTotalSupplies: StatisticTotalSupply[]
+    statisticAnnualPercentageCompensations: StatisticAnnualPercentageCompensation[]
+    statisticSecondaryIssuance: StatisticSecondaryIssuance[]
+    statisticInflationRates: StatisticInflationRate[]
+    statisticLiquidity: StatisticLiquidity[]
+    statisticMinerAddresses: StatisticMinerAddress[]
   }
 
   export interface PageState extends StatisticChartsState {
@@ -443,6 +520,7 @@ declare namespace State {
     statistics: Statistics
     nervosDaoState: NervosDaoState
     udtState: UDTState
+    tokensState: TokensState
   }
 
   export interface PagePayload
@@ -453,7 +531,8 @@ declare namespace State {
       TransactionState,
       TransactionsState,
       NervosDaoState,
-      UDTState {}
+      UDTState,
+      TokensState {}
 
   export interface App {
     toast: ToastMessage | null
@@ -479,7 +558,7 @@ declare namespace State {
   export interface Components {
     searchBarEditable: boolean
     mobileMenuVisible: boolean
-    homeSearchBarVisible: boolean
+    headerSearchBarVisible: boolean
   }
 
   export interface AppState extends PageState {

@@ -231,6 +231,12 @@ export const fetchStatisticUncleRate = () => {
   )
 }
 
+export const fetchStatisticMinerAddressDistribution = () => {
+  return axiosIns(`/distribution_data/miner_address_distribution`).then((res: AxiosResponse) =>
+    toCamelcase<Response.Wrapper<State.StatisticMinerAddressDistribution>>(res.data.data),
+  )
+}
+
 export const fetchStatisticCellCount = () => {
   return axiosIns(`/daily_statistics/live_cells_count-dead_cells_count`).then((res: AxiosResponse) =>
     toCamelcase<Response.Response<Response.Wrapper<State.StatisticCellCount>[]>>(res.data),
@@ -297,6 +303,36 @@ export const fetchStatisticNodeDistribution = () => {
   )
 }
 
+export const fetchStatisticTotalSupply = () => {
+  return axiosIns(`/daily_statistics/circulating_supply-burnt-locked_capacity`).then((res: AxiosResponse) =>
+    toCamelcase<Response.Wrapper<State.StatisticTotalSupply>[]>(res.data.data),
+  )
+}
+
+export const fetchStatisticAnnualPercentageCompensation = () => {
+  return axiosIns(`/monetary_data/nominal_apc`).then((res: AxiosResponse) =>
+    toCamelcase<Response.Wrapper<State.StatisticAnnualPercentageCompensations>>(res.data.data),
+  )
+}
+
+export const fetchStatisticSecondaryIssuance = () => {
+  return axiosIns(`/daily_statistics/treasury_amount-mining_reward-deposit_compensation`).then((res: AxiosResponse) =>
+    toCamelcase<Response.Wrapper<State.StatisticSecondaryIssuance>[]>(res.data.data),
+  )
+}
+
+export const fetchStatisticInflationRate = () => {
+  return axiosIns(
+    `/monetary_data/nominal_apc50-nominal_inflation_rate-real_inflation_rate`,
+  ).then((res: AxiosResponse) => toCamelcase<Response.Wrapper<State.StatisticInflationRates>>(res.data.data))
+}
+
+export const fetchStatisticLiquidity = () => {
+  return axiosIns(`/daily_statistics/circulating_supply-liquidity`).then((res: AxiosResponse) =>
+    toCamelcase<Response.Wrapper<State.StatisticLiquidity>[]>(res.data.data),
+  )
+}
+
 export const fetchSimpleUDT = (typeHash: string) => {
   return axiosIns(`/udts/${typeHash}`).then((res: AxiosResponse) =>
     toCamelcase<Response.Wrapper<State.UDT>>(res.data.data),
@@ -325,4 +361,8 @@ export const fetchSimpleUDTTransactionsWithAddress = (
       page_size: size,
     },
   }).then((res: AxiosResponse) => toCamelcase<Response.Response<Response.Wrapper<State.Transaction>[]>>(res.data))
+}
+
+export const fetchTokens = () => {
+  return axiosIns(`/udts`).then((res: AxiosResponse) => toCamelcase<Response.Wrapper<State.TokenInfo>[]>(res.data.data))
 }

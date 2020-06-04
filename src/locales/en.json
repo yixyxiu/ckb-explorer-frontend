@@ -23,6 +23,7 @@
       "charts": "Charts",
       "nervos_dao": "Nervos DAO",
       "faucet": "Faucet",
+      "tokens": "Tokens",
       "docs": "Docs",
       "search_placeholder": "Block/Transaction/Address/Lock Hash/Type Hash",
       "mainnet": "LINA",
@@ -91,10 +92,11 @@
       "log": "(Log)",
       "no_data": "No data...",
       "charts_title": "Charts",
-      "category_mining": "Mining Charts",
+      "category_mining": "Mining",
       "category_activities": "Activities",
       "category_block": "Block",
       "category_network": "Network",
+      "category_monetary": "Economic Status",
       "tx_fee_history": "Transaction Fee",
       "tx_fee": "Transaction Fee (CKB)",
       "block_count": "Block Ratio",
@@ -114,7 +116,21 @@
       "new_node_count": "New Node Count",
       "city": "City",
       "node_count": "Node Count",
-      "node_distribution": "Node Distribution"
+      "node_distribution": "Node Distribution",
+      "total_supply": "Total Supply",
+      "circulating_supply": "Circulating Supply",
+      "burnt": "Burnt",
+      "locked": "Unvested",
+      "year": "Time (year)",
+      "nominal_apc": "Nominal DAO Compensation Rate",
+      "inflation_rate": "Inflation Rate",
+      "nominal_inflation_rate": "Nominal Inflation Rate",
+      "real_inflation_rate": "Real Inflation Rate",
+      "tradable": "Tradable",
+      "dao_deposit": "Nervos DAO Deposit",
+      "liquidity": "Liquidity",
+      "miner_radio": "Radio",
+      "miner_addresses_rank": "Top Miners (Recent 7 days)"
     },
     "home": {
       "height": "Height",
@@ -303,7 +319,15 @@
       "holder_addresses": "Holder Addresses",
       "decimal": "Decimal",
       "search_placeholder": "Address",
-      "unknown_token": "Unknown Token"
+      "unknown_token": "Unknown Token",
+      "submit_token_info": "Submit Token Info",
+      "unknown_token_description": "The token’s information is incomplete. If you are the owner of this token, please submit token info.",
+      "tokens": "Tokens",
+      "name_symbol": "Name (symbol)",
+      "transactions": "24hr Transactions",
+      "address_count": "Address Count",
+      "created_time": "Created Time",
+      "tokens_empty": "There are no tokens at this time."
     }
   }
 }
