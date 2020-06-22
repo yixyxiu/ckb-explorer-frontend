@@ -11,21 +11,13 @@ export const TransactionCellContentPanel = styled.div`
   flex-direction: row;
   align-items: ${(props: { isCellbase: boolean }) => (props.isCellbase ? 'flex-start' : 'center')};
   margin: 10px 0;
-
   font-size: 16px;
   color: #000000;
   text-align: center;
-  .transaction__cell_index {
-    margin-right: 3px;
-    color: #666666;
-    > div {
-      width: 40px;
-      text-align: start;
-    }
-  }
+
   .transaction__cell_hash {
-    flex: 0.4;
     display: flex;
+    flex: 0.4;
   }
 
   .transaction__cell_detail {
@@ -44,26 +36,6 @@ export const TransactionCellContentPanel = styled.div`
     display: ${(props: { isCellbase: boolean }) => (props.isCellbase ? 'none' : 'flex')};
     flex-direction: column;
     align-items: center;
-
-    .transaction__cell__info__content {
-      color: rgba(0, 0, 0, 0.6);
-      cursor: pointer;
-      width: 45px;
-
-      &:hover {
-        color: ${props => props.theme.primary};
-      }
-    }
-
-    .transaction__cell__info__separate {
-      background: rgba(0, 0, 0, 0.6);
-      width: 45px;
-      height: 1px;
-
-      &:hover {
-        background: ${props => props.theme.primary};
-      }
-    }
   }
 
   a {
@@ -71,6 +43,54 @@ export const TransactionCellContentPanel = styled.div`
   }
   a:hover {
     color: ${props => props.theme.primary};
+  }
+`
+export const TransactionCellInfoPanel = styled.div`
+  .transaction__cell__info__content {
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    width: 45px;
+
+    @media (max-width: 750px) {
+      width: auto;
+    }
+
+    &:hover {
+      color: ${props => props.theme.primary};
+    }
+  }
+
+  .transaction__cell__info__separate {
+    background: rgba(0, 0, 0, 0.6);
+    width: 45px;
+    height: 1px;
+
+    @media (max-width: 750px) {
+      width: auto;
+    }
+
+    &:hover {
+      background: ${props => props.theme.primary};
+    }
+  }
+`
+
+export const TransactionCellAddressPanel = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  .transaction__cell_index {
+    margin-right: 3px;
+    color: #666666;
+
+    > div {
+      width: 70px;
+      text-align: start;
+
+      @media (max-width: 1440px) {
+        width: 50px;
+      }
+    }
   }
 `
 
@@ -95,10 +115,10 @@ export const TransactionCellHashPanel = styled.div`
   }
 
   > span {
-    margin-right: 19px;
+    margin-right: 50px;
 
-    @media (max-width: 750px) {
-      margin-right: 0px;
+    @media (max-width: 1440px) {
+      margin-right: 30px;
     }
   }
 
@@ -179,6 +199,10 @@ export const TransactionCellCardPanel = styled.div`
     display: flex;
     font-size: 16px;
     color: #000000;
+
+    a {
+      color: ${props => props.theme.primary};
+    }
 
     a:hover {
       color: ${props => props.theme.primary};

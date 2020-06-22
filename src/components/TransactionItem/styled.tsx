@@ -1,9 +1,11 @@
 import styled from 'styled-components'
+import { CircleCorner } from '.'
 
 export const TransactionPanel = styled.div`
   width: 100%;
   margin-top: 4px;
-  border-radius: 6px;
+  border-radius: ${(props: { circleCorner: CircleCorner }) =>
+    `${props.circleCorner.top ? '6px 6px' : '0 0'}${props.circleCorner.bottom ? ' 6px 6px' : ' 0 0'}`};
   box-shadow: 2px 2px 6px 0 #dfdfdf;
   background-color: #ffffff;
   padding: 10px 40px 15px 40px;
@@ -84,7 +86,7 @@ export const TransactionCellPanel = styled.div`
   flex-direction: row;
   align-items: flex-start;
 
-  @media (max-width: 750px) {
+  @media (max-width: 1200px) {
     flex-direction: column;
     align-items: center;
   }
@@ -99,7 +101,7 @@ export const TransactionCellPanel = styled.div`
     margin-right: 40px;
     flex: 1;
 
-    @media (max-width: 750px) {
+    @media (max-width: 1200px) {
       margin: 0px;
       flex: none;
       width: 100%;
@@ -113,7 +115,7 @@ export const TransactionCellPanel = styled.div`
     align-items: flex-start;
     margin-left: 40px;
 
-    @media (max-width: 750px) {
+    @media (max-width: 1200px) {
       margin: 0px;
       flex: none;
       width: 100%;

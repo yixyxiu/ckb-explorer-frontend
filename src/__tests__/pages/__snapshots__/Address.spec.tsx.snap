@@ -22,13 +22,13 @@ exports[`Active Page shallow renders 1`] = `
 
 exports[`Active Page shallow renders with empty data 1`] = `
 <div
-  className="sc-fznxsB cFeRni"
+  className="sc-fznxsB kITOPN"
 >
   <div
     className="sc-fznWqX bNxGGa container"
   >
     <div
-      className="sc-AxiKw cBJNUf"
+      className="sc-AxiKw tkPRa"
     >
       <div
         className="hash__card__content__panel"
@@ -75,7 +75,7 @@ exports[`Active Page shallow renders with empty data 1`] = `
         className="sc-fznJRM ftfaLD"
       >
         <div
-          className="sc-fzqBkg jiVMKT"
+          className="sc-fzqBkg fbmIml"
         >
           <div
             className="overview__separate"

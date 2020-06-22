@@ -14,7 +14,6 @@ export const HashCardPanel = styled.div`
 
   @media (max-width: 750px) {
     padding: 0 16px;
-    border-radius: 3px;
     box-shadow: 1px 1px 3px 0 #dfdfdf;
   }
 
@@ -40,7 +39,7 @@ export const HashCardPanel = styled.div`
     margin-right: 8px;
   }
   .hash__title {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 600;
     color: #000000;
     white-space: nowrap;
@@ -77,6 +76,8 @@ export const HashCardPanel = styled.div`
     > img {
       width: 21px;
       height: 24px;
+      margin-bottom: 6px;
+
       @media (max-width: 750px) {
         width: 16px;
         height: 18px;
@@ -84,10 +85,26 @@ export const HashCardPanel = styled.div`
       }
     }
   }
+
   #hash__value {
     color: #ffffff;
     position: absolute;
     bottom: -30px;
+  }
+
+  .hash__vesting {
+    color: ${props => props.theme.primary};
+    margin-left: 12px;
+    margin-top: 6px;
+
+    &:hover {
+      color: ${props => props.theme.primary};
+    }
+
+    @media (max-width: 750px) {
+      margin-top: 3px;
+      margin-left: 6px;
+    }
   }
 `
 

@@ -51,6 +51,7 @@ export const HeaderBlockchainPanel = styled.div`
     font-size: 8px;
     margin-top: 2px;
     cursor: pointer;
+    height: 12px;
   }
 `
 
@@ -81,8 +82,8 @@ export const MobileSubMenuPanel = styled.div`
     color: ${props => props.theme.primary};
   }
   .mobile__menus__sub__item {
-    margin-left: 24px;
-    margin-top: 22px;
+    width: 300px;
+    padding: 24px 11px 0 11px;
     font-size: 12px;
     display: flex;
     align-items: center;
