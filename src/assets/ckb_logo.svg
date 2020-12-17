@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="807px" height="213px" viewBox="0 0 807 213" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>logo/CKB_explorer/forEdit</title>
+    <g id="logo/CKB_explorer/forEdit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="logoMark" transform="translate(0.000000, 0.832031)">
+                <polygon id="logoMark_PathItem_" points="0.271370192 0 0.271370192 211.277567 54.7000385 211.277567 54.7000385 96.1541394 96.4244856 96.1541394"></polygon>
+                <polygon id="logoMark_PathItem_2" points="158.510913 0 158.510913 115.124452 116.78749 115.124452 212.939582 211.277567 212.939582 0"></polygon>
+            </g>
+        </g>
+        <text id="COMMON-KNOWLEDGE-BAS" font-family="AktivGroteskCorp-Bold, Aktiv Grotesk Corp" font-size="62" font-weight="bold" letter-spacing="18">
+            <tspan x="248" y="57" fill="#00CC9B">C</tspan>
+            <tspan x="310.206" y="57" fill="#FFFFFF">OMMON</tspan>
+            <tspan x="248" y="128" fill="#00CC9B">K</tspan>
+            <tspan x="307.85" y="128" fill="#FFFFFF">NOWLEDGE</tspan>
+            <tspan x="248" y="199" fill="#00CC9B">B</tspan>
+            <tspan x="305.494" y="199" fill="#FFFFFF">ASE</tspan>
+        </text>
+    </g>
+</svg>
