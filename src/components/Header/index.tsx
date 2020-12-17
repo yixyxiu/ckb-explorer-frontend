@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-import LogoIcon from '../../assets/ckb_logo.png'
+import { useLocation } from 'react-router'
+import LogoIcon from '../../assets/ckb_logo.svg'
 import { HeaderPanel, HeaderEmptyPanel, HeaderMobileMenuPanel, HeaderLogoPanel } from './styled'
 import { isMobile, isScreen750to1440 } from '../../utils/screen'
 import { useAppState, useDispatch } from '../../contexts/providers/index'
@@ -8,7 +9,6 @@ import MenusComp from './MenusComp'
 import { SearchComp } from './SearchComp'
 import LanguageComp from './LanguageComp'
 import BlockchainComp from './BlockchainComp'
-import { useLocation } from 'react-router'
 import { currentLanguage } from '../../utils/i18n'
 
 const LogoComp = () => {
