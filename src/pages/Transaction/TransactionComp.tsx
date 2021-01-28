@@ -108,22 +108,20 @@ export const TransactionOverview = () => {
     },
   ]
   if (txStatus === 'committed') {
-    if (confirmation > 0) {
-      OverviewItems.push(
-        {
-          title: i18n.t('block.timestamp'),
-          content: parseSimpleDate(blockTimestamp),
-        },
-        {
-          title: i18n.t('transaction.transaction_fee'),
-          content: <DecimalCapacity value={localeNumberString(shannonToCkb(transactionFee))} />,
-        },
-        {
-          title: i18n.t('transaction.status'),
-          content: formatConfirmation(confirmation),
-        },
-      )
-    }
+    OverviewItems.push(
+      {
+        title: i18n.t('block.timestamp'),
+        content: parseSimpleDate(blockTimestamp),
+      },
+      {
+        title: i18n.t('transaction.transaction_fee'),
+        content: <DecimalCapacity value={localeNumberString(shannonToCkb(transactionFee))} />,
+      },
+      {
+        title: i18n.t('transaction.status'),
+        content: formatConfirmation(confirmation),
+      },
+    )
   } else {
     OverviewItems.push(
       {
@@ -137,6 +135,7 @@ export const TransactionOverview = () => {
       {
         title: i18n.t('transaction.status'),
         content: showTxStatus(txStatus),
+        valueTooltip: txStatus === 'rejected' ? i18n.t('transaction.tx_rejected_reason') : undefined,
       },
     )
   }
@@ -208,7 +207,7 @@ export const TransactionOverview = () => {
 
   return (
     <TransactionOverviewPanel>
-      <OverviewCard items={OverviewItems} hideShadow={true}>
+      <OverviewCard items={OverviewItems} hideShadow>
         <div className="transaction__overview_info">
           <SimpleButton className="transaction__overview_parameters" onClick={() => setShowParams(!showParams)}>
             <div>{i18n.t('transaction.transaction_parameters')}</div>
