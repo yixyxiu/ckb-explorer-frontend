@@ -108,22 +108,20 @@ export const TransactionOverview = () => {
     },
   ]
   if (txStatus === 'committed') {
-    if (confirmation > 0) {
-      OverviewItems.push(
-        {
-          title: i18n.t('block.timestamp'),
-          content: parseSimpleDate(blockTimestamp),
-        },
-        {
-          title: i18n.t('transaction.transaction_fee'),
-          content: <DecimalCapacity value={localeNumberString(shannonToCkb(transactionFee))} />,
-        },
-        {
-          title: i18n.t('transaction.status'),
-          content: formatConfirmation(confirmation),
-        },
-      )
-    }
+    OverviewItems.push(
+      {
+        title: i18n.t('block.timestamp'),
+        content: parseSimpleDate(blockTimestamp),
+      },
+      {
+        title: i18n.t('transaction.transaction_fee'),
+        content: <DecimalCapacity value={localeNumberString(shannonToCkb(transactionFee))} />,
+      },
+      {
+        title: i18n.t('transaction.status'),
+        content: formatConfirmation(confirmation),
+      },
+    )
   } else {
     OverviewItems.push(
       {
