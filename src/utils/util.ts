@@ -1,7 +1,15 @@
 import { ReactNode } from 'react'
 import camelcaseKeys from 'camelcase-keys'
 import BigNumber from 'bignumber.js'
-import { MAX_CONFIRMATION, ContractHashTag, MainnetContractHashTags, TestnetContractHashTags } from './const'
+import {
+  MAX_CONFIRMATION,
+  ContractHashTag,
+  MainnetContractHashTags,
+  TestnetContractHashTags,
+  TOKEN_EMAIL_SUBJECT,
+  TOKEN_EMAIL_BODY,
+  TOKEN_EMAIL_ADDRESS,
+} from './const'
 import i18n from './i18n'
 import { isMainnet } from './chain'
 import CONFIG from '../config'
@@ -107,9 +115,13 @@ export const matchCodeHash = (contractHash: string): ContractHashTag | undefined
 
 export const matchTxHash = (txHash: string, index: number | string): ContractHashTag | undefined => {
   if (isMainnet()) {
-    MainnetContractHashTags.find(codeHashTag => codeHashTag.txHashes.find(hash => hash === `${txHash}-${index}`))
+    return MainnetContractHashTags.find(codeHashTag => codeHashTag.txHashes.find(hash => hash === `${txHash}-${index}`))
   }
   return TestnetContractHashTags.find(codeHashTag => codeHashTag.txHashes.find(hash => hash === `${txHash}-${index}`))
+}
+
+export const udtSubmitEmail = () => {
+  return `mailto:${TOKEN_EMAIL_ADDRESS}?subject=${TOKEN_EMAIL_SUBJECT}&body=${TOKEN_EMAIL_BODY}`
 }
 
 export default {
