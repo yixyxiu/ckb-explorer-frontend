@@ -116,11 +116,7 @@ export const TransactionCellHashPanel = styled.div`
   }
 
   > span {
-    margin-right: 50px;
-
-    @media (max-width: 1440px) {
-      margin-right: 30px;
-    }
+    margin: 0 3px;
   }
 
   .transaction__cell_address_no_link {
@@ -151,6 +147,10 @@ export const TransactionCellDetailPanel = styled.div`
       height: ${(props: { isWithdraw: boolean }) => (props.isWithdraw ? '20px' : '14px')};
     }
   }
+`
+
+export const TransactionCellNftInfo = styled.div`
+  white-space: pre-line;
 `
 
 export const TransactionCellDetailModal = styled.div`
